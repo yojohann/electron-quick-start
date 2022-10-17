@@ -1,0 +1,181 @@
+---
+title: "Setup"
+output: html_document
+date: "2022-10-17"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# electron-quick-start
+
+
+Update files of electron quick start: 
+- `package.json` - Points to the app's main file and lists its details and dependencies.
+- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
+
+
+From your command line:
+
+
+```{bash}
+git clone https://github.com/electron/electron-quick-start
+
+```
+
+
+```{bash}
+# Go into the repository
+cd electron-quick-start
+# Install dependencies
+npm install
+```
+ 
+ 
+```{bash}
+
+cd electron-quick-start
+# Run the app
+npm start
+```
+
+
+```{r}
+
+curl::curl_download( url = "https://sourceforge.net/projects/rportable/files/R-Portable/4.2.0/R-Portable_4.2.0.paf.exe/download",
+                     destfile = "R-Portable_4.2.0.paf.exe")
+
+```
+ 
+ install manually inside the app folder
+```{bash}
+cd electron-quick-start
+open ../R-Portable_4.2.0.paf.exe 
+```
+
+
+```{r}
+dir.create( path = "electron-quick-start/renv_cache")
+
+```
+
+
+`.Renviron`
+```
+RENV_PATHS_CACHE =  "renv_cache"
+
+```
+
+
+
+`.gitignore`
+```
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+```
+
+- add `cc.ico`
+
+`.renvignore`
+```{r}
+node_modules
+R-Portable
+renv
+renv_cache
+
+```
+
+
+```{r root.dir = file.path( getwd(), "electron-quick-start") }
+
+# setwd( file.path( getwd(), "electron-quick-start") )
+
+install.packages("renv")
+install.packages("usethis")
+install.packages("here")
+
+```
+
+app.Rproj
+```
+Version: 1.0
+
+RestoreWorkspace: No
+SaveWorkspace: No
+AlwaysSaveHistory: Default
+
+EnableCodeIndexing: Yes
+UseSpacesForTab: Yes
+NumSpacesForTab: 2
+Encoding: UTF-8
+
+RnwWeave: Sweave
+LaTeX: pdfLaTeX
+
+AutoAppendNewline: Yes
+StripTrailingWhitespace: Yes
+LineEndingConversion: Posix
+
+```
+
+## open the app.Rproj
+
+`package.json`
+
+```
+{
+  "name": "shiny-electron-quick-start",
+  "version": "1.0.0",
+  "description": "A minimal Electron application with R 4.2.0 and tidyverse and shiny",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+	"package-win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --icon=cc.ico --out=YOElectronShinyAppWindows --version-string.CompanyName=YO --version-string.FileDescription=CE --version-string.ProductName=\"Shiny Electron App\""
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "shiny",
+    "R",
+    "demo"
+  ],
+  "author": "laurejo1",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^21.1.0"
+  }
+}
+
+
+```
+ 
+ 
+ `main.js`
+```
+
+```
+ 
+
+ 
+```
+cd electron-quick-start
+
+# Run the app
+npm start
+
+```
+
+```
+
+cd electron-quick-start
+# Compile the app
+npm run package-win
+
+```
+ 
+
+ 
