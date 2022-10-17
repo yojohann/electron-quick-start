@@ -1,0 +1,67 @@
+---
+title: "install"
+output: html_document
+date: "2022-10-17"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## install R
+
+### init only once
+
+```{r , eval=FALSE}
+
+if (FALSE) {
+  
+install.packages("renv")
+library(renv)
+renv::init(force = FALSE)
+renv::isolate()
+# print(.libPaths())
+if( is.null( getOption("repos")) | length(getOption("repos")) < 1  ) {
+  options(repos = c(CRAN = "https://cran.rstudio.com"))
+}
+  
+}
+
+
+```
+
+## install R libraries
+```{r}
+
+library(renv)
+
+renv::status()
+
+install.packages("here")
+# install.packages("cowsay")
+
+# install.packages("shiny")
+# install.packages("tidyverse")
+
+renv::snapshot()
+
+
+```
+
+# Run the app
+```{bash}
+
+# Run the app
+npm start
+
+```
+# Compile the app to export
+```{bash}
+
+# Compile the app
+npm run package-win
+
+```
+ 
+
+ 
