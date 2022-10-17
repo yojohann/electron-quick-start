@@ -7,7 +7,7 @@
     "start": "electron .",
 	"package-win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --icon=cc.ico --out=output --version-string.CompanyName=YO --version-string.FileDescription=CE --version-string.ProductName=\"ShinyApp\""
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/yojohann/electron-quick-start",
   "keywords": [
     "Electron",
     "shiny",
